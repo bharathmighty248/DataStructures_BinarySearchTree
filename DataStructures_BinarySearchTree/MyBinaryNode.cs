@@ -7,6 +7,11 @@ namespace DataStructures_BinarySearchTree
     public class MyBinaryNode<T> where T:IComparable
     {
         public INode<T> root;
+        
+        /// <summary>
+        /// This Method is For Adding Elements to BST
+        /// </summary>
+        /// <param name="data"></param>
         public void Add(T data)
         {
             INode<T> newNode = new INode<T>(data);
@@ -43,6 +48,10 @@ namespace DataStructures_BinarySearchTree
             }
         }
 
+        /// <summary>
+        /// This Method is For Displaying The BST
+        /// </summary>
+        /// <param name="root"></param>
         public void Display(INode<T> root)
         {
             if (root != null)
@@ -51,6 +60,23 @@ namespace DataStructures_BinarySearchTree
                 Console.Write(root.data + " ");
                 Display(root.right);
             }
+        }
+
+        public int Size(INode<T> root)
+        {
+            if (root == null)
+                return 0;
+            else
+                return (Size(root.left) + 1 + Size(root.right));
+        }
+
+        public void Check(int size)
+        {
+            if (size==13)
+                Console.WriteLine("\nAll Are Added");
+            else
+                Console.WriteLine("\nSomething Missing..Please Add All Elements Shown in Figure..");
+
         }
     }
     
