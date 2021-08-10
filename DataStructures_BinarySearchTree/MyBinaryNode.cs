@@ -62,6 +62,11 @@ namespace DataStructures_BinarySearchTree
             }
         }
 
+        /// <summary>
+        /// This Method is For Finding Size of BST
+        /// </summary>
+        /// <param name="root"></param>
+        /// <returns></returns>
         public int Size(INode<T> root)
         {
             if (root == null)
@@ -70,6 +75,10 @@ namespace DataStructures_BinarySearchTree
                 return (Size(root.left) + 1 + Size(root.right));
         }
 
+        /// <summary>
+        /// This Method is For Checking All Are Added or Not
+        /// </summary>
+        /// <param name="size"></param>
         public void Check(int size)
         {
             if (size==13)
@@ -77,6 +86,28 @@ namespace DataStructures_BinarySearchTree
             else
                 Console.WriteLine("\nSomething Missing..Please Add All Elements Shown in Figure..");
 
+        }
+
+        public bool check = false;
+        /// <summary>
+        /// This Method Is For Searching Element in BST
+        /// </summary>
+        /// <param name="root"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public bool Search(INode<int> root, int key)
+        {
+            if (root == null)
+            {
+                return check;
+            }
+            Search(root.left, key);
+            if (root.data == key)
+                return check = true;
+            Search(root.right, key);
+            if (root.data == key)
+                return check = true;
+            return check;
         }
     }
     

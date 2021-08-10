@@ -21,9 +21,11 @@ namespace DataStructures_BinarySearchTree
             tree.Add(63);
             tree.Add(67);
             tree.Display(tree.root);
-            int size = tree.Size(tree.root);
-            Console.WriteLine("\n\nSize Of BST is: " + size);
-            tree.Check(size);
+            bool keyCheck = tree.Search(tree.root, 63);
+            if(keyCheck == true)
+                Console.WriteLine("\n63 is Found");
+            else
+                Console.WriteLine("\n63 is Not Found");
         }
     }
 }
